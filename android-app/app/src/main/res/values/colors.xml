@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base colors -->
+    <color name="obsidian">#050608</color>
+    <color name="graphite">#101318</color>
+    <color name="electricCyan">#22E6FF</color>
+    <color name="ultraviolet">#8B5CFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="errorRed">#FF5252</color>
+    <color name="successGreen">#4CAF50</color>
+    <!-- Text colors -->
+    <color name="onObsidian">#FFFFFF</color>
+    <color name="onCyan">#000000</color>
+    <color name="onGraphite">#FFFFFF</color>
+    <!-- Divider -->
+    <color name="divider">#2A2F3F</color>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="ic_zenith"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group android:translateX="2.5" android:translateY="2.5">
+        <path
+            android:fillColor="@color/obsidian"
+            android:pathData="M12 2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 18c-6.627 0-12-5.373-12-12s5.373-12 12-12 12 5.373 12 12-5.373 12-12 12zm0-18c-1.657 0-3.067.658-4.221 1.725L3.033 14.436C1.853 13.537 1.5 11.691 1.5 9.5 1.5 7.095 3.399 5.16 5.628 3.633 8.07 5.222 9.893 7.135 10.95c1.165-.527 2.52-.881 3.832-.98 1.366-.1 2.803.053 3.956.43 1.157.377 2.234.633 3.26.823 1.026.187 2.11.216 3.113.163 1.012-.053 2.006-.343 2.93-.868 1.077-.601 1.926-1.458 2.588-2.518 0.662-1.06 1.095-2.305 1.197-3.375 0.098-1.07 0.047-2.14-0.05-3.208z"/>
+    </group>
+</vector>

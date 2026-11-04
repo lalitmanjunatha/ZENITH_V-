@@ -1,23 +1,13 @@
 {
   "identity": {},
-  "preferences": {},
+  "preferences": {
+    "language": {
+      "value": "Tamil",
+      "updated": "2026-10-28"
+    }
+  },
   "projects": {},
   "relationships": {},
   "wishes": {},
-  "notes": {
-    "fabric_pairing_status": {
-      "value": "secure_payload_needed",
-      "updated": "2026-09-20"
-    }
-  },
-  "relations": {},
-  "sessions": [],
-  "monitors": {
-    "missing_australian_national_kumar_sampat": {
-      "topic": "missing Australian national Kumar Sampath Ramaswamy Nepal floods Rasuwa",
-      "added": "2026-09-15",
-      "last_check": "2026-09-20",
-      "last_hash": "fc1be05ab885"
-    }
-  }
+  "notes": {}
 }

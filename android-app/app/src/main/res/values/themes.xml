@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Zenith" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@drawable/ic_zenith</item>
+        <item name="android:colorPrimary">@color/obsidian</item>
+        <item name="android:colorOnPrimary">@color/cyan</item>
+        <item name="android:colorSurface">@color/graphite</item>
+        <item name="android:colorOnSurface">@color/cyan</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/obsidian</item>
+    </style>
+</resources>
