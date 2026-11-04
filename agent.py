@@ -881,7 +881,7 @@ async def entrypoint(ctx: agents.JobContext):
     print_banner()
     status("Checking network connectivity...", "load")
     if network_available:
-        status("Network online - Gemini realtime available", "ok")
+        status("Network online - OpenAI realtime available", "ok")
     else:
         status("Network offline - limited functionality", "warn")
 

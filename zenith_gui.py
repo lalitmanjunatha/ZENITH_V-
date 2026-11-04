@@ -1,5 +1,6 @@
 import platform as _platform
 import subprocess as _subprocess
+import os
 
 # ── Nuclear: force CREATE_NO_WINDOW on EVERY subprocess call on Windows ───────
 # This patches Popen itself, so no per-file flag is needed anywhere.
@@ -125,8 +126,21 @@ def _pcm_level(samples) -> float:
 
 
 def _get_api_key() -> str:
-    with open(API_CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)["gemini_api_key"]
+    # Prefer GOOGLE_API_KEY environment variable (already set in .env)
+    google_key = os.getenv("GOOGLE_API_KEY")
+    if google_key and google_key.strip():
+        return google_key.strip()
+    # Fall back to api_keys.json gemini_api_key
+    try:
+        api_data = json.loads(
+            BASE_DIR.joinpath("config", "api_keys.json").read_text(encoding="utf-8")
+        )
+        legacy = api_data.get("gemini_api_key")
+        if legacy and legacy.strip():
+            return legacy.strip()
+    except Exception:
+        pass
+    return ""
 
 
 def _load_system_prompt() -> str:
@@ -699,11 +713,23 @@ class ZenithLive:
     def _on_text_command(self, text: str):
         if not self._loop or not self.session:
             return
+        # Check for AI provider identity question first
+        text_lower = text.lower().strip()
+        if any(kw in text_lower for kw in ['from which ai', 'which provider', 'from what ai', 'made from']):
+            self.ui.write_log("SYS: Identifying as TinyFish search provider")
+            asyncio.run_coroutine_threadsafe(
+                self.session.send_client_content(
+                    turns={"role": "user", "parts": [{"text": "TinyFish"}]},
+                    turn_complete=True
+                ),
+                self._loop
+            )
+            return
         # Respect wake-word sleep: a typed command must not be answered while
         # asleep either (the sleep gate is not just for the mic). Wake first with
         # "Hey Zenith" or the WAKE NOW button.
         if self._wake_enabled and not self._awake:
-            self.ui.write_log("SYS: I'm asleep — say 'Hey Zenith' or tap WAKE NOW first.")
+            self.ui.write_log("SYS: I'm asleep  say 'Hey Zenith' or tap WAKE NOW first.")
             return
         asyncio.run_coroutine_threadsafe(
             self.session.send_client_content(
